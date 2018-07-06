@@ -6,7 +6,8 @@
 
 <script>
 export default {
-  name: 'Main'
+  name: 'Table',
+  props: ['selectedDate']
 }
 </script>
 

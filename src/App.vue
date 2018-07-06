@@ -1,12 +1,22 @@
 <template>
     <div id="app">
-        <router-view />
+        <label>
+            Date:
+            <input type="date" v-model="date"/>
+        </label>
+
+        <router-view :selectedDate="date" v-if="date !== null"/>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  data: function () {
+    return {
+      date: null
+    }
+  }
 }
 </script>
 
