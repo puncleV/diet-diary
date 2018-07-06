@@ -6,7 +6,7 @@
                 <input type="date" v-model="date"/>
             </label>
             <div>
-                {{2}}/{{3}} kcal
+                {{currentKcal | kcalPrettify}}/{{maxKcal | kcalPrettify}} kcal
             </div>
         </div>
         <div>
@@ -35,13 +35,22 @@ export default {
   name: 'AppHeader',
   data: function () {
     return {
-      date: null
+      date: null,
+      maxKcal: 0,
+      currentKcal: 0,
+      weight: null,
+      chest: null,
+      waist: null,
+      thighs: null
     }
   },
   watch: {
     date: function (a) {
       this.$emit('date-change', a)
     }
+  },
+  filters: {
+    kcalPrettify: (value) => value.toString().padStart(4, '-')
   }
 }
 </script>
