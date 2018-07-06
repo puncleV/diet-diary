@@ -12,6 +12,7 @@
   "dependencies": {
     "mocha": "^4.0.1",
     "mongodb": "^2.2.35",
+    "v-autocomplete": "^1.8.2",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
   },

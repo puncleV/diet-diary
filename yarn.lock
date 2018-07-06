@@ -4612,6 +4612,10 @@ util@^0.10.3:
   dependencies:
     inherits "2.0.3"
 
+v-autocomplete@^1.8.2:
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/v-autocomplete/-/v-autocomplete-1.8.2.tgz#966c7b3eda2c74dd683911114a20284cd096961f"
+
 v8-compile-cache@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.0.0.tgz#526492e35fc616864284700b7043e01baee09f0a"
