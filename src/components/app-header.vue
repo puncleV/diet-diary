@@ -7,6 +7,9 @@
             </label>
             <div>
                 {{currentKcal | kcalPrettify}}/{{maxKcal | kcalPrettify}} kcal
+                {{currentCarbohydrates | nutritionalValuePrettify}}/{{maxCarbohydrates | nutritionalValuePrettify}} carbohydrates
+                {{currentProteins | nutritionalValuePrettify}}/{{maxProteins | nutritionalValuePrettify}} proteins
+                {{currentFats | nutritionalValuePrettify}}/{{maxFats | nutritionalValuePrettify}} fats
             </div>
         </div>
         <div class="parameters">
@@ -31,6 +34,12 @@ export default {
       date: null,
       maxKcal: 0,
       currentKcal: 0,
+      currentCarbohydrates: 0,
+      currentProteins: 0,
+      currentFats: 0,
+      maxCarbohydrates: 0,
+      maxProteins: 0,
+      maxFats: 0,
       weight: 0,
       chest: null,
       waist: null,
@@ -70,7 +79,8 @@ export default {
     }
   },
   filters: {
-    kcalPrettify: (value) => value.toString().padStart(4, '-')
+    kcalPrettify: (value) => value.toString().padStart(4, '-'),
+    nutritionalValuePrettify: (value) => value.toString().padStart(3, '-')
   }
 }
 </script>
