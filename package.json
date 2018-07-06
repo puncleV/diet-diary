@@ -12,7 +12,8 @@
   "dependencies": {
     "mocha": "^4.0.1",
     "mongodb": "^2.2.35",
-    "vue": "^2.5.16"
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^2.1.0",
