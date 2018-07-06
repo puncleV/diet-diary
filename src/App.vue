@@ -1,20 +1,24 @@
 <template>
     <div id="app">
-        <label>
-            Date:
-            <input type="date" v-model="date"/>
-        </label>
-
+        <app-header :date="date" @date-change="onDateChangeHandler"></app-header>
         <router-view :selectedDate="date" v-if="date !== null"/>
     </div>
 </template>
 
 <script>
+import AppHeader from './components/app-header'
+
 export default {
   name: 'app',
+  components: { AppHeader },
   data: function () {
     return {
       date: null
+    }
+  },
+  methods: {
+    onDateChangeHandler: function (date) {
+      this.date = date
     }
   }
 }
