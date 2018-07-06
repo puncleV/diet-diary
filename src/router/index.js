@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Table from '../components/table'
+import DailyList from '../components/daily-list'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Table',
-      component: Table
+      name: 'DailyList',
+      component: DailyList
     }
   ]
 })

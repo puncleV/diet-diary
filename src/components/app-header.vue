@@ -9,30 +9,20 @@
                 {{currentKcal | kcalPrettify}}/{{maxKcal | kcalPrettify}} kcal
             </div>
         </div>
-        <div>
-            <label>
-                weight:
-                <input type="number"/>
-            </label>
-            <label>
-                chest:
-                <input type="number"/>
-            </label>
-            <label>
-                waist:
-                <input type="number"/>
-            </label>
-            <label>
-                thighs:
-                <input type="number"/>
-            </label>
+        <div class="parameters">
+            <editable-label :label="'weight'" :currentValue="weight" @confirm="onWeightConfirm"></editable-label>
+            <editable-label :label="'chest'" :currentValue="chest" @confirm="onChestConfirm"></editable-label>
+            <editable-label :label="'waist'" :currentValue="waist" @confirm="onWaistConfirm"></editable-label>
+            <editable-label :label="'thighs'" :currentValue="thighs" @confirm="onThighsConfirm"></editable-label>
         </div>
     </div>
 </template>
 
 <script>
+import EditableLabel from './editable-label'
 export default {
   name: 'AppHeader',
+  components: {EditableLabel},
   created: function () {
     this.date = new Date().toISOString().replace(/T.*/, '')
   },
@@ -41,10 +31,37 @@ export default {
       date: null,
       maxKcal: 0,
       currentKcal: 0,
-      weight: null,
+      weight: 0,
       chest: null,
       waist: null,
-      thighs: null
+      thighs: null,
+      weightEdit: true,
+      chestEdit: true,
+      waistEdit: true,
+      thighsEdit: true
+    }
+  },
+  methods: {
+    /**
+     * editable
+     *
+     * @param {string|null} value - current input value
+     * @param {boolean} edit - edit mode is on
+     */
+    editable: function (value, edit) {
+      return value === null || edit
+    },
+    onWeightConfirm: function (weight) {
+      this.weight = weight
+    },
+    onChestConfirm: function (chest) {
+      this.chest = chest
+    },
+    onWaistConfirm: function (waist) {
+      this.waist = waist
+    },
+    onThighsConfirm: function (thighs) {
+      this.thighs = thighs
     }
   },
   watch: {
@@ -64,5 +81,9 @@ export default {
         height: 50px;
         display: flex;
         justify-content: space-between;
+    }
+
+    .parameters {
+        display: flex;
     }
 </style>
