@@ -11,19 +11,19 @@
         </div>
         <div>
             <label>
-                Weight:
+                weight:
                 <input type="number"/>
             </label>
             <label>
-                Chest:
+                chest:
                 <input type="number"/>
             </label>
             <label>
-                Waist:
+                waist:
                 <input type="number"/>
             </label>
             <label>
-                Thighs:
+                thighs:
                 <input type="number"/>
             </label>
         </div>
