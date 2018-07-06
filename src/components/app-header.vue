@@ -33,6 +33,9 @@
 <script>
 export default {
   name: 'AppHeader',
+  created: function () {
+    this.date = new Date().toISOString().replace(/T.*/, '')
+  },
   data: function () {
     return {
       date: null,
