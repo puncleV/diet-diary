@@ -5,7 +5,9 @@
                 Date:
                 <input type="date" v-model="date"/>
             </label>
-            {{2}}/{{3}}
+            <div>
+                {{2}}/{{3}} kcal
+            </div>
         </div>
         <div>
             <label>
