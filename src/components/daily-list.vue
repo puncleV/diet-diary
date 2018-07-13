@@ -11,7 +11,7 @@
                 <th title="kcal">kcal</th>
             </tr>
             </thead>
-            <food-list v-for="group in groups" :key="group" :name="group.name" :data="group.data"></food-list>
+            <food-list v-for="group in groups" :key="group.name" :name="group.name" :data="group.data"></food-list>
         </table>
 
     </div>

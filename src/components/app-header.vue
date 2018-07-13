@@ -18,6 +18,7 @@
             <editable-label :label="'waist'" :currentValue="waist" @confirm="onWaistConfirm"></editable-label>
             <editable-label :label="'thighs'" :currentValue="thighs" @confirm="onThighsConfirm"></editable-label>
         </div>
+        <button @click="onLogout">logout</button>
     </div>
 </template>
 
@@ -71,6 +72,9 @@ export default {
     },
     onThighsConfirm: function (thighs) {
       this.thighs = thighs
+    },
+    onLogout: function () {
+      this.$emit('logout')
     }
   },
   watch: {

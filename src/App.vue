@@ -1,16 +1,18 @@
 <template>
     <div id="app">
-        <app-header v-if="loggedIn" :date="date" @date-change="onDateChangeHandler"></app-header>
-        <router-view class="content" :selectedDate="date" v-if="!loggedIn || date !== null" @login="loginHandler"/>
+        <app-header v-if="loggedIn" :date="date" @date-change="onDateChangeHandler" @logout="logoutHandler"></app-header>
+        <login v-if="!loggedIn" @login="loginHandler"></login>
+        <router-view class="content" :selectedDate="date" v-else-if="date !== null" />
     </div>
 </template>
 
 <script>
 import AppHeader from './components/app-header'
+import Login from './components/login'
 
 export default {
   name: 'app',
-  components: { AppHeader },
+  components: { Login, AppHeader },
   data: function () {
     return {
       date: null,
@@ -22,7 +24,10 @@ export default {
       this.date = date
     },
     loginHandler: function () {
-      console.log('login')
+      this.loggedIn = true
+    },
+    logoutHandler: function () {
+      this.loggedIn = false
     }
   }
 }
