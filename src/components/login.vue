@@ -2,15 +2,18 @@
     <div class="login">
         <div class="login-form">
             <div>
-                <label>
-                    <input placeholder="login" v-model="login"/>
-                </label>
+                <div>
+                    <label>
+                        <input placeholder="login" v-model="login"/>
+                    </label>
+                </div>
+                <div v-show="login !== ''">
+                    <label>
+                        <input placeholder="password" v-model="password"/>
+                    </label>
+                </div>
             </div>
-            <div v-show="login !== ''">
-                <label>
-                    <input placeholder="password" v-model="password"/>
-                </label>
-            </div>
+            <button @click="loginClickHandler">login</button>
         </div>
     </div>
 </template>
@@ -22,6 +25,11 @@ export default {
     return {
       login: '',
       password: ''
+    }
+  },
+  methods: {
+    loginClickHandler: function () {
+      this.$emit('login')
     }
   }
 }
