@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <app-header :date="date" @date-change="onDateChangeHandler"></app-header>
-        <router-view :selectedDate="date" v-if="date !== null"/>
+        <app-header v-if="loggedIn" :date="date" @date-change="onDateChangeHandler"></app-header>
+        <router-view class="content" :selectedDate="date" v-if="!loggedIn || date !== null"/>
     </div>
 </template>
 
@@ -13,7 +13,8 @@ export default {
   components: { AppHeader },
   data: function () {
     return {
-      date: null
+      date: null,
+      loggedIn: false
     }
   },
   methods: {
@@ -25,4 +26,7 @@ export default {
 </script>
 
 <style lang="css">
+    #app, .content {
+        height: 100%;
+    }
 </style>
