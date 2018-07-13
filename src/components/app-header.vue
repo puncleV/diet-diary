@@ -26,7 +26,7 @@
 import EditableLabel from './editable-label'
 export default {
   name: 'AppHeader',
-  components: {EditableLabel},
+  components: { EditableLabel },
   created: function () {
     this.date = new Date().toISOString().replace(/T.*/, '')
   },

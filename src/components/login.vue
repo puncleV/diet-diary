@@ -22,6 +22,11 @@
 <script>
 export default {
   name: 'login',
+  props: {
+    auth: {
+      required: true
+    }
+  },
   data () {
     return {
       login: '',
@@ -30,6 +35,7 @@ export default {
   },
   methods: {
     loginClickHandler: function () {
+      this.auth.login('token')
       this.$emit('login')
     }
   }
