@@ -3,12 +3,12 @@
         <div class="login-form">
             <div>
                 <label>
-                    <input placeholder="login"/>
+                    <input placeholder="login" v-model="login"/>
                 </label>
             </div>
-            <div>
+            <div v-show="login !== ''">
                 <label>
-                    <input placeholder="password"/>
+                    <input placeholder="password" v-model="password"/>
                 </label>
             </div>
         </div>
@@ -33,10 +33,10 @@ export default {
         align-items: center;
         vertical-align: center;
         justify-content: center;
-        flex-shrink: 1;
     }
+
     .login-form {
-        height: 100px;
+        padding: 50px;
         display: flex;
     }
 </style>
