@@ -20,23 +20,25 @@
 </template>
 
 <script>
+import Auth from '../utils/Auth'
 export default {
   name: 'login',
-  props: {
-    auth: {
-      required: true
-    }
-  },
   data () {
     return {
       login: '',
       password: ''
     }
   },
+  mounted () {
+    if (Auth.loggedIn()) {
+      this.$router.replace('/')
+    }
+  },
   methods: {
     loginClickHandler: function () {
-      this.auth.login('token')
-      this.$emit('login')
+      Auth.login('token')
+
+      this.$router.replace(this.$route.query.redirect || '/')
     }
   }
 }

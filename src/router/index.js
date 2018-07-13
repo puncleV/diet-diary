@@ -3,12 +3,30 @@ import Router from 'vue-router'
 import Auth from '../utils/Auth'
 
 Vue.use(Router)
+const requireAuth = (to, from, next) => {
+  if (!Auth.loggedIn()) {
+    next({
+      path: '/login',
+      query: { redirect: to.fullPath }
+    })
+  } else {
+    next()
+  }
+}
+
 
 const router = new Router({
   routes: [
     {
+      path: '*',
+      redirect: '/daily-list'
+    },
+    {
       name: 'login',
-      path: '/login'
+      path: '/login',
+      component: () => {
+        return import('../components/login')
+      }
     },
     {
       path: '/daily-list',
@@ -16,20 +34,19 @@ const router = new Router({
       component: () => {
         return import('../components/daily-list')
       },
-      meta: {
-        requiresAuth: true
+      beforeEnter: requireAuth
+    },
+    {
+      name: 'logout',
+      path: '/logout',
+      beforeEnter: (to, from, next) => {
+        Auth.logout()
+        next({
+          name: 'login'
+        })
       }
     }
   ]
-})
-
-router.beforeEach((transition, from, next) => {
-  console.log(transition)
-  if (transition.meta.requiresAuth && !Auth.loggedIn()) {
-    next('/login')
-  } else {
-    next()
-  }
 })
 
 export default router

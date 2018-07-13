@@ -1,6 +1,9 @@
 <template>
     <div>
-        <table>
+        <app-header
+                @date-change="onDateChangeHandler"
+        ></app-header>
+        <table v-if="selectedDate">
             <thead>
             <tr>
                 <th title="dish name">dish</th>
@@ -13,19 +16,24 @@
             </thead>
             <food-list v-for="group in groups" :key="group.name" :name="group.name" :data="group.data"></food-list>
         </table>
-
     </div>
 </template>
 
 <script>
 import FoodList from './food-list'
+import AppHeader from './app-header'
 
 export default {
   name: 'DailyList',
-  components: {FoodList},
-  props: ['selectedDate'],
+  components: {AppHeader, FoodList},
+  methods: {
+    onDateChangeHandler: function (date) {
+      this.selectedDate = date
+    }
+  },
   data: function () {
     return {
+      selectedDate: null,
       groups: [
         {
           name: 'breakfast',

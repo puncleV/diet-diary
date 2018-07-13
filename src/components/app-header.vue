@@ -74,7 +74,7 @@ export default {
       this.thighs = thighs
     },
     onLogout: function () {
-      this.$emit('logout')
+      this.$router.replace({name: 'logout'})
     }
   },
   watch: {
